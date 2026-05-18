@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>播放器图标练习</title>
+    <style>
+      
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a4c93, #d885a3, #6a4c93);
+        }
+
+        
+        .player-icon {
+            width: 200px;
+            height: 200px;
+            background-color: #8b5a8b;
+            border-radius: 20px;
+           
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .screen-frame {
+            width: 140px;
+            height: 100px;
+            background-color: #2b1b2b;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .screen-inner {
+            width: 120px;
+            height: 80px;
+           
+            background: linear-gradient(135deg, #f0b8a0, #8b5a6b);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .play-arrow {
+            width: 0;
+            height: 0;
+           
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 20px solid #2b1b2b;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-icon">
+        <div class="screen-frame">
+            <div class="screen-inner">
+                <div class="play-btn">
+                    <div class="play-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
