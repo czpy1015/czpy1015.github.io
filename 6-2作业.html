@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性布局焦点图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 外层轮播容器 */
+        .banner {
+            width: 900px;
+            height: 360px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        /* 图片容器 flex横向排列 */
+        .banner-img {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+        .banner-img > div {
+            flex: 1;
+        }
+        .banner-img img {
+            width: 900px;
+            height: 360px;
+        }
+        /* 左右箭头按钮 flex居中 */
+        .left, .right {
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left {
+            left: 12px;
+        }
+        .right {
+            right: 12px;
+        }
+        .left img, .right img {
+            width: 100%;
+            height: 100%;
+        }
+        /* 底部圆点容器 flex居中排布 */
+        .point-wrap {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .point-wrap span {
+            width: 18px;
+            height: 18px;
+            background: url("image/6-2作业/point1.png") no-repeat;
+            cursor: pointer;
+        }
+        .point-wrap span.active {
+            background: url("image/6-2作业/point2.png") no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <!-- 左右箭头，调用arrow1/arrow2 -->
+    <button class="left"><img src="image/6-2作业/arrow1.png"></button>
+    <button class="right"><img src="image/6-2作业/arrow2.png"></button>
+
+    <!-- 轮播图片，banner1为素材图，如需多张自行复制 -->
+    <div class="banner-img">
+        <div><img src="image/6-2作业/banner1.jpg"></div>
+        <div><img src="image/6-2作业/banner1.jpg"></div>
+        <div><img src="image/6-2作业/banner1.jpg"></div>
+        <div><img src="image/6-2作业/banner1.jpg"></div>
+    </div>
+
+    <!-- 底部圆点 point1未选中 point2选中 -->
+    <div class="point-wrap">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<script>
+    const wrap = document.querySelector('.banner-img');
+    const lBtn = document.querySelector('.left');
+    const rBtn = document.querySelector('.right');
+    const points = document.querySelectorAll('.point-wrap span');
+    let idx = 0;
+    const total = points.length;
+
+    function update() {
+        wrap.style.transform = `translateX(${-idx * 100}%)`;
+        points.forEach((item, i) => item.classList.toggle('active', i === idx))
+    }
+    rBtn.onclick = () => {
+        idx = idx >= total - 1 ? 0 : idx + 1;
+        update()
+    }
+    lBtn.onclick = () => {
+        idx = idx <= 0 ? total - 1 : idx - 1;
+        update()
+    }
+    points.forEach((p, i) => {
+        p.onclick = () => {
+            idx = i;
+            update()
+        }
+    })
+</script>
+</body>
+</html>
