@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>轮播</title>
     <style>
-        /* 轮播外层容器 */
+       
         .banner {
             width: 100%;
             height: 400px;
             position: relative;
             overflow: hidden;
         }
-        /* 图片横向排列盒子 */
+        
         .banner-img {
             display: flex;
             height: 100%;
@@ -26,7 +26,7 @@
             height: 100%;
             object-fit: cover;
         }
-        /* 左右按钮优化：无图片也能看见黑底按钮，永远悬浮 */
+        
         .left, .right {
             position: absolute;
             top: 50%;
@@ -35,7 +35,7 @@
             background: rgba(0,0,0,0.35);
             padding: 6px;
             cursor: pointer;
-            z-index:999; /* 提高层级，永远在最上层不会被盖住 */
+            z-index:999; 
         }
         .left {left: 20px;}
         .right {right: 20px;}
@@ -43,7 +43,7 @@
             width: 30px;
             vertical-align: middle;
         }
-        /* 底部圆点容器 */
+        
         .point-wrap {
             position: absolute;
             bottom: 20px;
@@ -53,7 +53,7 @@
             gap: 10px;
             z-index:999;
         }
-        /* 圆点样式 */
+        
         .point-wrap span {
             width: 14px;
             height: 14px;
@@ -61,7 +61,7 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        /* 激活的圆点变红 */
+        
         .point-wrap span.active {
             background: red;
         }
@@ -69,11 +69,11 @@
 </head>
 <body>
     <div class="banner">
-        <!-- 左右箭头 -->
+       
         <button class="left"><img src="image/6-2作业/arrow1.png"></button>
         <button class="right"><img src="image/6-2作业/arrow2.png"></button>
 
-        <!-- 临时全部用第一张图，解决后面空白 -->
+       
         <div class="banner-img">
             <div><img src="image/6-2作业/banner1.jpg"></div>
            <div><img src="image/6-2作业/banner1.jpg"></div>
@@ -81,7 +81,7 @@
            <div><img src="image/6-2作业/banner1.jpg"></div>
         </div>
 
-        <!-- 底部小圆点 -->
+        
         <div class="point-wrap">
             <span class="active"></span>
             <span></span>
@@ -96,23 +96,23 @@
         const rightBtn = document.querySelector('.right');
         const points = document.querySelectorAll('.point-wrap span');
         let index = 0;
-        // 切换图片函数
+       
         function changeImg(){
             wrap.style.transform = `translateX(-${index * 100}%)`;
             points.forEach(item=>item.classList.remove('active'));
             points[index].classList.add('active');
         }
-        // 右箭头
+       
         rightBtn.onclick = function(){
             index = index >= 3 ? 0 : index+1;
             changeImg();
         }
-        // 左箭头
+        
         leftBtn.onclick = function(){
             index = index <=0 ? 3 : index-1;
             changeImg();
         }
-        // 点击圆点跳转
+       
         points.forEach((item,i)=>{
             item.onclick = ()=>{
                 index = i;
