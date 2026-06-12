@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>网上书城 - 注册新用户</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 30px auto;
+            border: 2px solid #6688bb;
+            background-color: #dddddd;
+        }
+        .top-title {
+            background-color: #666666;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 18px;
+        }
+        .reg-title {
+            background: #e0e0e0;
+            padding: 6px 15px;
+            border-bottom: 1px solid #999;
+        }
+        table {
+            margin: 20px auto;
+        }
+        .input-item {
+            display: flex;
+            align-items: center;
+        }
+        .icon {
+            border: 1px solid #999;
+            background: #eee;
+            padding: 2px 6px;
+            border-right: none;
+        }
+        input {
+            width: 190px;
+            padding: 3px;
+            border: 1px solid #333;
+        }
+        .submit-btn {
+            width: 226px;
+            background-color: #555555;
+            color: white;
+            border: none;
+            padding: 4px;
+            margin-top: 8px;
+        }
+    </style>
+   
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="box">
+        <div class="top-title">网上书城</div>
+        <div class="reg-title"><i class="fas fa-plus"></i> 注册新用户</div>
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td class="input-item">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <input type="text" name="username" placeholder="用户名">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input-item">
+                        <span class="icon"><i class="fas fa-key"></i></span>
+                        <input type="password" name="pwd" placeholder="密码">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input-item">
+                        <span class="icon"><i class="fas fa-key"></i></span>
+                        <input type="password" name="repwd" placeholder="确认密码">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input-item">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <input type="email" name="email" placeholder="电子邮件">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="注册新用户" class="submit-btn">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
